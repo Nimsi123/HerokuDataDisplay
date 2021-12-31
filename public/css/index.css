@@ -1,0 +1,19 @@
+h1, h3 {
+	text-align: center;
+}
+
+body, .anchored { padding-top: 70px; }
+
+.mydropdown {
+	width: 100%;
+	margin: 10px;
+}
+
+.proj_detail {
+	width: 70%;
+	margin: auto;
+}
+
+.small_text {
+	font-size: 15px;
+}

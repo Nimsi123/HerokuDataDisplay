@@ -1,0 +1,1 @@
+{"id":"47f8903a-2a7c-431b-b9f7-92ae05a801d1","space":8120,"runtime":"nodejs14.x","name":"ebaywebdeta","path":"rc250p","project":"b0aauvrg","account":"144798365827","region":"us-east-1","deps":["deta@^1.0.1","express@^4.17.2","nodemon@^2.0.15"],"envs":null,"public":true,"log_level":"debug","cron":""}

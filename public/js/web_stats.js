@@ -1,0 +1,1 @@
+const web_stats = {'num_scraped_pages': 11860, 'num_recorded_sales': 2372000, 'gig_stored_data': 0.29};
