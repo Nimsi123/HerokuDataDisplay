@@ -23,8 +23,7 @@ app.get("/download_photo", async (req, res) => {
     res.send(Buffer.from(buffer));
  })
 
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3000
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || 'localhost'
-app.listen(server_port, server_ip_address, () => {
-    console.log( "Listening on " + server_ip_address + ", port " + server_port )
-});
+// var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3000
+// var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || 'localhost'
+const PORT = process.env.PORT || 5000
+app.listen(PORT);
