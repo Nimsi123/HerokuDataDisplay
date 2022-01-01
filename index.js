@@ -8,10 +8,8 @@ const drive = deta.Drive("Item_Visualizations");
 
 // Static Files (css/js/img)
 app.use(express.static('public'));
-
 // Set View's (html)
 app.set('views', './views');
-app.set('view engine', 'ejs');
 
 app.get('', (req, res) => {
     res.sendFile(__dirname + '/views/index.html')
@@ -23,7 +21,5 @@ app.get("/download_photo", async (req, res) => {
     res.send(Buffer.from(buffer));
  })
 
-// var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3000
-// var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || 'localhost'
 const PORT = process.env.PORT || 5000
 app.listen(PORT);
