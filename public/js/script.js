@@ -1,5 +1,10 @@
 const submit_form = async () => {
   let formData = new FormData(document.getElementById("suggestions_box_form"));
+
+  if ((formData.get("email") === "" || formData.get("product_name") === "") && formData.get("comments") === "") {
+    return;
+  }
+
   let postData = JSON.stringify({
     "data": {
       "email": formData.get("email"),
@@ -8,12 +13,25 @@ const submit_form = async () => {
     }
   })
 
+  // replace button with loader
+  document.getElementById("form-submit-wrapper").innerHTML = `
+    <button class="btn btn-primary" type="button" disabled>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      <span class="sr-only">Loading...</span>
+    </button>
+  `;
+
   await fetch('https://api.apispreadsheets.com/data/MO2edWiG8Xj5yoeh/', {
       method:'POST',
       body: postData
   });
 
   document.getElementById("modal-close").click();
+
+  // replace loader with button
+  document.getElementById("form-submit-wrapper").innerHTML = `
+    <button type="button" class="btn btn-primary" onclick="submit_form()">Submit</button>
+  `;
 }
 
 const setProgressData = () => {
