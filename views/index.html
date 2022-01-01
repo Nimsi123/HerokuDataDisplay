@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
-
 		<!--Bootstrap-->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+		<!--Custom CSS-->
 		<link rel = "stylesheet" type = "text/css" href = "css/index.css">
 
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src = "js/web_stats.js"></script>
 		<script src = "js/queries.js"></script>
 		<script src = "js/new_script.js"></script>
-
 	</head>
-
-	<body>
+	<body style="margin-top: -70px">
 
 		<!--Navbar-->
 		<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
@@ -114,40 +110,36 @@
 
 			<div class = "row">
 				<div class = "col-6">
-					<img src = "https://via.placeholder.com/150">
+					<img src = "img/data_pipeline.png"
+						width = "300px"
+						height = "157px"
+					>
 				</div>
 				<div class = "col-6">
 					<span>
-					Using ScraperAPI and BeautifulSoup, eBayScraper periodically scrapes product data, such as price, date, and condition, from eBay.com for a variety of items.
+						This website marks the end of a 3-stage data pipeline, scraping, data analytics and graphing, and visualization.
+						The pipeline is scheduled to run once a month, repeatedly updating a database with product data such as price, date, and sale conditions.
 					</span>
 				</div>
 			</div>
-
 			<hr>
 
 			<div class = "row">
 				<div class = "col-6">
-					<img src = "https://via.placeholder.com/150">
+					<img src = "img/deta_logo.svg"
+						width = "200px"
+						height = "200px"
+					>
 				</div>
 				<div class = "col-6">
 					<span>
-					The program utilizes asynchronous programming to organize concurrent API requests, speeding up the scraping process.
+						Uses <a href = "https://docs.deta.sh/docs/base/about/">Deta Base</a> and 
+						<a href = "https://docs.deta.sh/docs/drive/about">Deta Drive</a> to store product data and data visualizations.
 					</span>
 				</div>
 			</div>
-
 			<hr>
 
-			<div class = "row">
-				<div class = "col-6">
-					<img src = "https://via.placeholder.com/150">
-				</div>
-				<div class = "col-6">
-					<span>
-						Use pandas within a Jupyter environment to compare the performance between groups of items. eBayScraper identifies item groups which depreciate the quickest, sell in large quantities, fluctuate seasonally, and have other informative characteristics.
-					</span>
-				</div>
-			</div>
 		</div>
 
 		<!--Scrape Now-->
@@ -161,8 +153,7 @@
 		<div id = "References" class = "container anchored" style = "width: 70%; margin: auto;">
 			<h4>References</h6>
 			<ul>
-				<li><a href = "https://github.com/Nimsi123/eBayScraper">eBayScraper</a></li>
-				<li><a href = "https://github.com/Nimsi123/DisplayScrapedEbayData">eBayScraper's Web Visualizer</a></li>
+				<li><a href = "https://www.deta.sh/">Deta: The Cloud for Doers & Dreamers</a></li>
 			</ul>
 		</div>			
 
