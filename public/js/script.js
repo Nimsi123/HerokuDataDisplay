@@ -1,17 +1,9 @@
 const submit_form = async () => {
+  
   let formData = new FormData(document.getElementById("suggestions_box_form"));
-
   if ((formData.get("email") === "" || formData.get("product_name") === "") && formData.get("comments") === "") {
     return;
   }
-
-  let postData = JSON.stringify({
-    "data": {
-      "email": formData.get("email"),
-      "product_name": formData.get("product_name"),
-      "comments": formData.get("comments")
-    }
-  })
 
   // replace button with loader
   document.getElementById("form-submit-wrapper").innerHTML = `
@@ -20,6 +12,14 @@ const submit_form = async () => {
       <span class="sr-only">Loading...</span>
     </button>
   `;
+
+  let postData = JSON.stringify({
+    "data": {
+      "email": formData.get("email"),
+      "product_name": formData.get("product_name"),
+      "comments": formData.get("comments")
+    }
+  })
 
   await fetch('https://api.apispreadsheets.com/data/MO2edWiG8Xj5yoeh/', {
       method:'POST',

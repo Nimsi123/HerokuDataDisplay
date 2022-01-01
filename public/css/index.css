@@ -4,20 +4,20 @@ h1, h3 {
 
 body, .anchored { padding-top: 70px; }
 
+.small_text {
+	font-size: 15px;
+}
+
 .mydropdown {
 	width: 100%;
 	margin: 10px;
-}
-
-.proj_detail {
-	width: 70%;
-	margin: auto;
 }
 
 .page_section {
 	margin: 100px auto 100px auto
 }
 
-.small_text {
-	font-size: 15px;
+.required-field::after {
+    content: "*";
+    color: red;
 }
