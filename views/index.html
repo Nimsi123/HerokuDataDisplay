@@ -12,7 +12,8 @@
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src = "js/web_stats.js"></script>
 		<script src = "js/queries.js"></script>
-		<script src = "js/new_script.js"></script>
+		<script src = "js/custom_dropdown.js"></script>
+		<script src = "js/script.js"></script>
 	</head>
 	<body style="margin-top: -70px">
 
@@ -27,6 +28,9 @@
 			    <ul class="navbar-nav">
 			      <li class="nav-item">
 			        <a class="nav-link" href="#View-Graphs">View Graphs</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#Suggestion-Box">Suggestion Box</a>
 			      </li>
 			      <li class="nav-item">
 			        <a class="nav-link" href="#Project-Details">Project Details</a>
@@ -58,7 +62,7 @@
 		</div>
 
 		<!--View Graphs-->
-		<div id = "View-Graphs" class = "container anchored">
+		<div id = "View-Graphs" class = "container anchored page_section">
 			<h3>View Graphs</h3>
 			<!--Select Item-->
 			<div class = "row" style="text-align: center; width: 40%; margin: auto; min-height: 200px">
@@ -102,8 +106,56 @@
 			</div>
 		</div>
 
+		<!--Suggestion Box-->
+		<div id = "Suggestion-Box" class = "container anchored page_section">
+			<h3>Don't see a product you're looking for? Make a suggestion!</h3>
+
+			<div style="text-align:center;">
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#suggestion_modal"
+						style="margin-top:30px;"
+				>
+					Suggestion Box
+				</button>
+			</div>
+			
+			<!-- Modal -->
+			<div class="modal fade" id="suggestion_modal" tabindex="-1" role="dialog" aria-labelledby="suggestion_modal_label" aria-hidden="true"
+			>
+				<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+					<h5 class="modal-title" id="suggestion_modal_label">Tell us more about your idea!</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="modal-close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					</div>
+					<div class="modal-body">
+						<form id="suggestions_box_form">
+							<div class="form-group">
+								<label for="email" class="col-form-label">Email:</label>
+								<input type="text" class="form-control" id="email" name="email" placeholder="email@berkeley.edu">
+							</div>
+							<div class="form-group">
+								<label for="product_name" class="col-form-label">Product Name:</label>
+								<input type="text" class="form-control" id="product_name" name="product_name" placeholder="Product Name">
+							</div>
+							<div class="form-group">
+								<label for="comments" class="col-form-label">Comments:</label>
+								<input type="text" class="form-control" id="comments" name="comments" placeholder="Any comments on this item?">
+							</div>
+						  </form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" onclick="submit_form()">Submit</button>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+
 		<!--Project Details-->
-		<div id = "Project-Details" class = "container anchored proj_detail">
+		<div id = "Project-Details" class = "container anchored page_section">
 
 			<h3>Project Details</h3>
 			<br>
@@ -143,14 +195,15 @@
 		</div>
 
 		<!--Scrape Now-->
-		<div id = "Scrape-Now" class = "container anchored" style="display: none;">
+		<div id = "Scrape-Now" class = "container anchored page_section" style="display: none;">
 			<h3>Scrape Now</h3>
 
 			<img src = "https://via.placeholder.com/800" style = "display: block; margin-left: auto; margin-right: auto; width: 50%;">
 		</div>
 
 		<!--References-->
-		<div id = "References" class = "container anchored" style = "width: 70%; margin: auto;">
+		<div id = "References" class = "container anchored page_section" 
+		style = "width: 70%; margin: auto auto 100px auto;">
 			<h4>References</h6>
 			<ul>
 				<li><a href = "https://www.deta.sh/">Deta: The Cloud for Doers & Dreamers</a></li>

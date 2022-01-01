@@ -6,28 +6,6 @@ Note: This is what let's us to keep `current_level` from increasing out of contr
 var current_level = -1;
 const current_selection = [];
 
-const setProgressData = () => {
-    /*
-    Uses `web_stats`, which is defined in `web_stats.js`
-    Called when the page loads.
-  
-    11860 pages scraped!
-    2372000 recorded sales!
-    0.29 gigabytes of stored data!
-    and counting ...
-    */
-    document.getElementById("num_scraped_pages").innerHTML = web_stats.num_scraped_pages + " pages scraped!";
-    document.getElementById("num_recorded_sales").innerHTML = web_stats.num_recorded_sales + " recorded sales!";
-    document.getElementById("gig_stored_data").innerHTML = web_stats.gig_stored_data + " gigabytes of stored data!";
-  }
-
-//would get none because it hasn't loaded yet. use window.onload to wait until the page loads
-window.onload = () => {
-    setProgressData();
-    current_level = 1;
-    addButtons("insertbtns", current_level);
-  }
-
 const makeOneButton = (item, level) => {
     // create a single button in the dropdown
 
