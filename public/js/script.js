@@ -1,37 +1,45 @@
 const submit_form = async () => {
+
+  const place_loading_button = (id) => {
+    document.getElementById(id).innerHTML = `
+      <button class="btn btn-primary" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span class="sr-only">Loading...</span>
+      </button>
+    `;
+  }
   
+  const place_submit_button = (id) => {
+    document.getElementById(id).innerHTML = `
+    <button type="button" class="btn btn-primary" onclick="submit_form()">Submit</button>
+  `;
+  }
+
+  const organize_suggestion_data = (formData) => {
+    return JSON.stringify({
+      "data": {
+        "email": formData.get("email"),
+        "product_name": formData.get("product_name"),
+        "comments": formData.get("comments")
+      }
+    });
+  }
+
   let formData = new FormData(document.getElementById("suggestions_box_form"));
   if ((formData.get("email") === "" || formData.get("product_name") === "") && formData.get("comments") === "") {
     return;
   }
 
-  // replace button with loader
-  document.getElementById("form-submit-wrapper").innerHTML = `
-    <button class="btn btn-primary" type="button" disabled>
-      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-      <span class="sr-only">Loading...</span>
-    </button>
-  `;
-
-  let postData = JSON.stringify({
-    "data": {
-      "email": formData.get("email"),
-      "product_name": formData.get("product_name"),
-      "comments": formData.get("comments")
-    }
-  })
+  place_loading_button("form-submit-wrapper");
 
   await fetch('https://api.apispreadsheets.com/data/MO2edWiG8Xj5yoeh/', {
       method:'POST',
-      body: postData
+      body: organize_suggestion_data(formData)
   });
 
   document.getElementById("modal-close").click();
 
-  // replace loader with button
-  document.getElementById("form-submit-wrapper").innerHTML = `
-    <button type="button" class="btn btn-primary" onclick="submit_form()">Submit</button>
-  `;
+  place_submit_button("form-submit-wrapper");
 }
 
 const setProgressData = () => {
@@ -47,12 +55,13 @@ const setProgressData = () => {
     document.getElementById("num_scraped_pages").innerHTML = web_stats.num_scraped_pages + " pages scraped!";
     document.getElementById("num_recorded_sales").innerHTML = web_stats.num_recorded_sales + " recorded sales!";
     document.getElementById("gig_stored_data").innerHTML = web_stats.gig_stored_data + " gigabytes of stored data!";
-  }
+}
 
-//would get none because it hasn't loaded yet. use window.onload to wait until the page loads
 window.onload = () => {
+  // Note: document is initially none because the window hasn't properly loaded.
+  // Note: this is why we need to set the onload function (callback based)
     setProgressData();
     current_level = 1;
     addButtons("insertbtns", current_level);
-  }
+}
 
